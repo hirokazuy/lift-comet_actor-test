@@ -1,0 +1,11 @@
+table#comet_test {
+	width:auto;
+}
+
+#comet_test td {
+	border:1px inset;
+	padding: 0px;
+	width: 24px;
+	height: 24px;
+	background-color:#ff0000;
+}
