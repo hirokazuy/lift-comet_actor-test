@@ -1,0 +1,17 @@
+
+Discription
+-------------
+
+test code for lift framework. In this project, testing CometActor class.
+
+.. lift: http://liftweb.net/
+
+Environment
+-------------
+
+- Sun Java 1.6.0_05
+- Maven 2.2.1
+
+
+:Authors: Hien Ayatuki <hien.ayatuki@gmail.com>
+:blog: http://d.hatena.ne.jp/ayatuki/
