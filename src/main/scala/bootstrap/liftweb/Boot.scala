@@ -8,6 +8,7 @@ import Helpers._
 import _root_.net.liftweb.mapper.{DB, ConnectionManager, Schemifier, DefaultConnectionIdentifier, ConnectionIdentifier}
 import _root_.java.sql.{Connection, DriverManager}
 import _root_.org.hilib.model._
+import _root_.org.hilib.comet._
 import _root_.javax.servlet.http.{HttpServletRequest}
 
 /**
@@ -21,11 +22,13 @@ class Boot {
 
     // where to search snippet
     LiftRules.addToPackages("org.hilib")
-    Schemifier.schemify(true, Log.infoF _)
+    Schemifier.schemify(true, Log.infoF _, User)
 
     // Build SiteMap
-    val entries = Menu(Loc("Home", List("index"), "Home")) :: Menu(Loc("Test", List("comet"), "Test")) :: User.sitemap
+    val entries = Menu(Loc("Home", List("index"), "Home")) :: Menu(Loc("Test", List("comet"), "Test")) :: Menu(Loc("Chat", List("chat"), "Chat")) :: User.sitemap
     LiftRules.setSiteMap(SiteMap(entries:_*))
+
+    ChatRoomMaster.start
 
     /*
      * Show the spinny image when an Ajax call starts

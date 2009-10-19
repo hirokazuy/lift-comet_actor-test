@@ -21,13 +21,23 @@ class TestComet extends CometActor {
 
 	override def lowPriority = {
 		case InitializeMessage =>
-			blocks = List[Int](1)
+//			blocks = List[Int](1)
 			registTimerOnce()
 		case TimerMessage =>
 			Log.info("catch TimerMessage " + blocks.toString)
 			drawBlocks()
 			updateBlocks()
 			registTimerOnce()
+	}
+
+	override def localSetup() = {
+	    blocks = List[Int](1)
+	    super.localSetup()
+	}
+
+	override def localShutdown() = {
+	    blocks = null
+	    super.localShutdown()
 	}
 
 	def updateBlocks() = {

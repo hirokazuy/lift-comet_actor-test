@@ -1,0 +1,13 @@
+<lift:surround with="default" at="content">
+    <lift:UsersUtil.in>
+        <lift:comet type="ChatUser" name="Other">
+            <table id="chat_data" style="border:1px solid;">
+                <chat:message/>
+            </table>
+            <chat:inputForm/>
+        </lift:comet>
+    </lift:UsersUtil.in>
+    <lift:UsersUtil.out>
+        <p>Pleese logged in!</p>
+    </lift:UsersUtil.out>
+</lift:surround>
